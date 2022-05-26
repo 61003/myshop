@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Товары{% endblock %}
+{% block content %}
+<table>
+    <tr>
+        <td class="font-weight-bold">Наименование</td>
+        <td class="font-weight-bold">Дата поступления</td>
+        <td class="font-weight-bold">Цена</td>
+        <td class="font-weight-bold">Единица измерения</td>
+        <td class="font-weight-bold">Производитель</td>
+    </tr>
+        {% for good in object_list %}
+        <tr>
+            <td>{{ good.goods_name }}</td>
+            <td>{{ good.income_date }}</td>
+            <td>{{ good.price }}</td>
+            <td>{{ good.measure_type }}</td>
+            <td>{{ good.producer_name }}</td>
+        </tr>
+        {% endfor %}
+</table>
+<p></p>
+<button type="button" class="btn btn-dark">Сохранить</button>
+{% endblock %}
+
