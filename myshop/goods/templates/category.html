@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Раздел {{ category.category_name }}{% endblock %}
+{% block content %}
+<p class="font-weight-bold">{{ category.category_name }}</p>
+<p></p>
+<table>
+    <tr>
+        <td class="font-weight-bold">Наименование</td>
+        <td class="font-weight-bold">Дата поступления</td>
+        <td class="font-weight-bold">Цена</td>
+        <td class="font-weight-bold">Единица измерения</td>
+        <td class="font-weight-bold">Производитель</td>
+    </tr>
+        {% for good in object_list %}
+        <tr>
+            <td>{{ good.goods_name }}</td>
+            <td>{{ good.income_date }}</td>
+            <td>{{ good.price }}</td>
+            <td>{{ good.measure_type }}</td>
+            <td>{{ good.producer_name }}</td>
+        </tr>
+        {% endfor %}
+</table>
+{% endblock %}
+
