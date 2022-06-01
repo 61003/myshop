@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Товары{% endblock %}
 {% block content %}
+{% include "category_list.html" %}
 <table>
     <tr>
         <td class="font-weight-bold">Наименование</td>
@@ -8,14 +9,20 @@
         <td class="font-weight-bold">Цена</td>
         <td class="font-weight-bold">Единица измерения</td>
         <td class="font-weight-bold">Производитель</td>
+        <td class="font-weight-bold">Разделы</td>
     </tr>
-        {% for good in object_list %}
+        {% for goods in object_list %}
         <tr>
-            <td>{{ good.goods_name }}</td>
-            <td>{{ good.income_date }}</td>
-            <td>{{ good.price }}</td>
-            <td>{{ good.measure_type }}</td>
-            <td>{{ good.producer_name }}</td>
+            <td>{{ goods.goods_name }}</td>
+            <td>{{ goods.income_date }}</td>
+            <td>{{ goods.price }}</td>
+            <td>{{ goods.measure_type }}</td>
+            <td>{{ goods.producer_name }}</td>
+            <td>
+                {% for category in goods.category.all %}
+                    {{ category.category_name }}
+                {% endfor %}
+            </td>
         </tr>
         {% endfor %}
 </table>

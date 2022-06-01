@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    {% for item in category %}
+        <li><a href="category/{{ item.id }}"> {{ item.category_name }} </a></li>
+    {% endfor %}
+{% endblock %}
